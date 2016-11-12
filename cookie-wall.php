@@ -15,11 +15,11 @@ if ( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define( 'COOKIE__WALL_VERSION', '1.0' );
-define( 'COOKIE__WALL_MIN_WP_VERSION', '3.7' );
-define( 'COOKIE__WALL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'COOKIE__WALL_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
+define( 'COOKIE_WALL_VERSION', '1.0' );
+define( 'COOKIE_WALL_MIN_WP_VERSION', '3.7' );
+define( 'COOKIE_WALL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'COOKIE_WALL_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 
-require_once( COOKIE__WALL_PLUGIN_DIR . 'class.cookie-wall.php' );
+require_once( COOKIE_WALL_PLUGIN_DIR . 'class.cookie-wall.php' );
 
 add_action( 'wp_loaded', array( 'CookieWall', 'init' ) );

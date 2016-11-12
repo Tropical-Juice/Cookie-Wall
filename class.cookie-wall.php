@@ -75,7 +75,7 @@ class CookieWall {
 	}
 	
 	private static function getPageBG(){
-		return COOKIE__WALL_PLUGIN_URI.'assets/images/bg.png';
+		return COOKIE_WALL_PLUGIN_URI.'assets/images/bg.png';
 	}
 	
 	private static function getPageLogo(){
