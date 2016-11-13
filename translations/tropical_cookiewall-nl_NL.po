@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookie Wall\n"
-"POT-Creation-Date: 2016-11-13 13:21+0100\n"
-"PO-Revision-Date: 2016-11-13 13:20+0100\n"
+"POT-Creation-Date: 2016-11-13 20:46+0100\n"
+"PO-Revision-Date: 2016-11-13 20:45+0100\n"
 "Last-Translator: sem schilder <sem.schilder@gmail.com>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/tropical-juice/teams/69122/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -13,39 +13,76 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.11\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-WPHeader: cookie-wall.php\n"
 
-#: class.cookie-wall-admin.php:17 templates/admin-options.php:2
-msgid "Cookie Wall Options"
-msgstr "Cookie Wall Instellingen"
+#: class.cookie-wall-admin-settings.php:22
+#: class.cookie-wall-admin-settings.php:38
+msgid "Cookie Wall Settings"
+msgstr "Cookie Wall instellingen"
 
 #. Plugin Name of the plugin/theme
-#: class.cookie-wall-admin.php:17
+#: class.cookie-wall-admin-settings.php:23
 msgid "Cookie Wall"
 msgstr "Cookie Wall"
 
-#: class.cookie-wall-admin.php:22
-msgid "You do not have sufficient permissions to access this page."
-msgstr "U heeft niet genoeg rechten om deze pagina te kunnen bekijken."
+#: class.cookie-wall-admin-settings.php:63
+msgid "Background Settings"
+msgstr "Achtergrond instellingen"
 
-#: class.cookie-wall-admin.php:28
+#: class.cookie-wall-admin-settings.php:70
+msgid "URL"
+msgstr "URL"
+
+#: class.cookie-wall-admin-settings.php:78
+msgid "Color Code, CSS compliant code"
+msgstr "Kleur code, CSS-code"
+
+#: class.cookie-wall-admin-settings.php:86
+msgid "Blur"
+msgstr "Vervagen"
+
+#: class.cookie-wall-admin-settings.php:94
+msgid "Content Settings"
+msgstr "Instellingen voor inhoud"
+
+#: class.cookie-wall-admin-settings.php:101
+msgid "Logo URL"
+msgstr "Logo URL"
+
+#: class.cookie-wall-admin-settings.php:109
+msgid "Page ID for cookie wall notice"
+msgstr "Pagina ID voor de cookie muur inhoud"
+
+#: class.cookie-wall-admin-settings.php:117
+msgid "Google Analytics Tracking ID"
+msgstr "Google Analytics Tracking-ID"
+
+#: class.cookie-wall-admin-settings.php:157
+msgid "This section controls the background, image and blur:"
+msgstr "Dit gedeelte beheert de achtergrond, afbeelding en vervaging:"
+
+#: class.cookie-wall-admin-settings.php:161
+msgid "This section controls the content options:"
+msgstr "Dit gedeelte beheert de inhoud opties:"
+
+#: class.cookie-wall-admin.php:17
 msgid "Settings"
 msgstr "Instellingen"
 
-#: class.cookie-wall-admin.php:29
+#: class.cookie-wall-admin.php:18
 msgid "Need professional help?"
 msgstr "Professionele hulp nodig?"
 
-#: class.cookie-wall.php:99
+#: class.cookie-wall.php:129
 msgid "Accept"
 msgstr "Accepteren "
 
-#: class.cookie-wall.php:109
+#: class.cookie-wall.php:139
 msgid "Read more"
 msgstr "Lees meer"
 
