@@ -96,6 +96,21 @@ class CookieWall {
 		return $options['content_logo'];
 	}
 	
+	private static function getTrackingCode(){
+		$options = get_option('tropical_cookie_wall_options');
+		return "<script>
+		    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		    	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		    ga('create', '{$options['trackingID']}', 'auto');
+		    ga('set', 'anonymizeIp', true);
+		    ga('set', 'displayFeaturesTask', null);
+		    ga('send', 'pageview');
+		</script>;";
+	}
+	
 	private static function getPageLogo(){
 		return 'http://www.dev.tropicaljuice.nl/cookie-wall/wp-content/uploads/2016/11/Screen-Shot-2016-11-12-at-15.24.38.png';
 	}

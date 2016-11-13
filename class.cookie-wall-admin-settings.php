@@ -67,7 +67,7 @@ class CookieWallAdminSettingsPage {
 
         add_settings_field(
             'background_image_url', // ID
-            'URL', // background_blur 
+            __('URL',COOKIE_WALL_TEXT_DOMAIN), // background_blur 
             array( $this, 'background_url_callback' ), // Callback
             'setting-admin', // Page
             'background_section' // Section           
@@ -75,7 +75,7 @@ class CookieWallAdminSettingsPage {
         
         add_settings_field(
             'background_color', 
-            'Color Code, CSS compliant code', 
+            __('Color Code, CSS compliant code',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'background_color_callback' ), 
             'setting-admin', 
             'background_section'
@@ -83,7 +83,7 @@ class CookieWallAdminSettingsPage {
 
         add_settings_field(
             'background_blur', 
-            'Blur', 
+            __('Blur',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'background_blur_callback' ), 
             'setting-admin', 
             'background_section'
@@ -98,7 +98,7 @@ class CookieWallAdminSettingsPage {
         
         add_settings_field(
             'content_logo', 
-            'Logo URL', 
+            __('Logo URL',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'content_logo_callback' ), 
             'setting-admin', 
             'content_section'
@@ -106,8 +106,16 @@ class CookieWallAdminSettingsPage {
         
         add_settings_field(
             'content_page', 
-            'Page ID for cookie wall notice', 
+            __('Page ID for cookie wall notice',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'content_pageID_callback' ), 
+            'setting-admin', 
+            'content_section'
+        );
+        
+        add_settings_field(
+            'trackingID', 
+            __('Google Analytics Tracking ID',COOKIE_WALL_TEXT_DOMAIN), 
+            array( $this, 'content_trackingID_callback' ), 
             'setting-admin', 
             'content_section'
         );
@@ -132,6 +140,9 @@ class CookieWallAdminSettingsPage {
             
         if( isset( $input['content_logo'] ) )
             $new_input['content_logo'] = sanitize_text_field( $input['content_logo'] );
+            
+        if( isset( $input['trackingID'] ) )
+            $new_input['trackingID'] = sanitize_text_field( $input['trackingID'] );
             
         if( isset( $input['content_page'] ) )
             $new_input['content_page'] = absint( $input['content_page'] );
@@ -185,6 +196,13 @@ class CookieWallAdminSettingsPage {
         printf(
             '<input type="text" id="content_page" name="tropical_cookie_wall_options[content_page]" value="%s" />',
             isset( $this->options['content_page'] ) ? esc_attr( $this->options['content_page']) : ''
+        );
+    }
+    
+    public function content_trackingID_callback(){
+        printf(
+            '<input type="text" id="trackingID" name="tropical_cookie_wall_options[trackingID]" value="%s" />',
+            isset( $this->options['trackingID'] ) ? esc_attr( $this->options['trackingID']) : ''
         );
     }
 }
