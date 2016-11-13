@@ -8,7 +8,7 @@
 	<link href="<?php echo COOKIE_WALL_PLUGIN_URI ?>assets/css/style.css" media="all" rel="stylesheet">
 	<style>
 	    .background {
-	        background: url('<?php echo self::getPageBG() ?>') no-repeat top center;
+	        background:<?php echo self::getPageBgColor() ?> url('<?php echo self::getPageBgImage() ?>') no-repeat top center;
 	        <?php $blur = self::getBGBlur() ?>
 	        -webkit-filter: blur(<?php echo $blur ?>px);
 	        -moz-filter: blur(<?php echo $blur ?>px);

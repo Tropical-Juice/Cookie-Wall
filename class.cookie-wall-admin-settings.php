@@ -72,6 +72,14 @@ class CookieWallAdminSettingsPage {
             'setting-admin', // Page
             'background_section' // Section           
         );      
+        
+        add_settings_field(
+            'background_color', 
+            'Color Code, CSS compliant code', 
+            array( $this, 'background_color_callback' ), 
+            'setting-admin', 
+            'background_section'
+        );
 
         add_settings_field(
             'background_blur', 
@@ -95,6 +103,14 @@ class CookieWallAdminSettingsPage {
             'setting-admin', 
             'content_section'
         );
+        
+        add_settings_field(
+            'content_page', 
+            'Page ID for cookie wall notice', 
+            array( $this, 'content_pageID_callback' ), 
+            'setting-admin', 
+            'content_section'
+        );
     }
 
     /**
@@ -107,12 +123,18 @@ class CookieWallAdminSettingsPage {
         $new_input = array();
         if( isset( $input['background_url'] ) )
             $new_input['background_url'] = sanitize_text_field( $input['background_url'] );
+            
+        if( isset( $input['background_color'] ) )
+            $new_input['background_color'] = sanitize_text_field( $input['background_color'] );
 
         if( isset( $input['background_blur'] ) )
             $new_input['background_blur'] = absint( $input['background_blur'] );
             
         if( isset( $input['content_logo'] ) )
             $new_input['content_logo'] = sanitize_text_field( $input['content_logo'] );
+            
+        if( isset( $input['content_page'] ) )
+            $new_input['content_page'] = absint( $input['content_page'] );
 
         return $new_input;
     }
@@ -137,10 +159,14 @@ class CookieWallAdminSettingsPage {
             isset( $this->options['background_url'] ) ? esc_attr( $this->options['background_url']) : ''
         );
     }
+    
+    public function background_color_callback(){
+        printf(
+            '<input type="text" id="background_color" name="tropical_cookie_wall_options[background_color]" value="%s" />',
+            isset( $this->options['background_color'] ) ? esc_attr( $this->options['background_color']) : ''
+        );
+    }
 
-    /** 
-     * Get the settings option array and print one of its values
-     */
     public function background_blur_callback(){
         printf(
             '<input type="text" id="background_blur" name="tropical_cookie_wall_options[background_blur]" value="%s" />',
@@ -152,6 +178,13 @@ class CookieWallAdminSettingsPage {
         printf(
             '<input type="text" id="content_logo" name="tropical_cookie_wall_options[content_logo]" value="%s" />',
             isset( $this->options['content_logo'] ) ? esc_attr( $this->options['content_logo']) : ''
+        );
+    }
+    
+    public function content_pageID_callback(){
+        printf(
+            '<input type="text" id="content_page" name="tropical_cookie_wall_options[content_page]" value="%s" />',
+            isset( $this->options['content_page'] ) ? esc_attr( $this->options['content_page']) : ''
         );
     }
 }

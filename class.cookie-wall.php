@@ -72,12 +72,18 @@ class CookieWall {
 	}
 	
 	private static function getCookiePageID(){
-		return 4;
+		$options = get_option('tropical_cookie_wall_options');
+		return $options['content_page'];
 	}
 	
-	private static function getPageBG(){
+	private static function getPageBgImage(){
 		$options = get_option('tropical_cookie_wall_options');
 		return $options['background_url'];
+	}
+	
+	private static function getPageBgColor(){
+		$options = get_option('tropical_cookie_wall_options');
+		return $options['background_color'];
 	}
 	
 	private static function getBGBlur(){
