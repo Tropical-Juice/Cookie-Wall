@@ -90,7 +90,7 @@ class CookieWallAdminSettingsPage {
         
         add_settings_field(
             'content_logo', 
-            'Logo', 
+            'Logo URL', 
             array( $this, 'content_logo_callback' ), 
             'setting-admin', 
             'content_section'
