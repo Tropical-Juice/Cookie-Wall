@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta content="ie=edge" http-equiv="x-ua-compatible">
 	<title><?php echo apply_filters('the_title', $post->post_title); ?></title>
-	<link href="<?php echo COOKIE__WALL_PLUGIN_URI ?>assets/css/style.css" media="all" rel="stylesheet">
+	<link href="<?php echo COOKIE_WALL_PLUGIN_URI ?>assets/css/style.css" media="all" rel="stylesheet">
 	<style>
 	    .background {
 	        background: url('<?php echo self::getPageBG() ?>') no-repeat top center;
@@ -29,7 +29,7 @@
 	</main>
 		<script src="<?php echo get_site_url()?>/wp-includes/js/jquery/jquery.js" type='text/javascript'>
 		</script> 
-		<script src="<?php echo COOKIE__WALL_PLUGIN_URI ?>assets/js/scripts.js" type='text/javascript'>
+		<script src="<?php echo COOKIE_WALL_PLUGIN_URI ?>assets/js/scripts.js" type='text/javascript'>
 		</script> 
 		<script>
 		    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

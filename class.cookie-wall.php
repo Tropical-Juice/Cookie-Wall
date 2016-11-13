@@ -85,7 +85,9 @@ class CookieWall {
 	private static function get_blocked_agents(){
 		$blocked_agents = array ('Internet\ Explorer', 'MSIE', 'Chrome', 'Safari', 'Firefox', 'Windows', 'Opera', 'iphone', 'ipad', 'android', 'blackberry');
 		foreach($blocked_agents as $agent){
-			if(stristr($_SERVER['HTTP_USER_AGENT'], $agent) !== FALSE) {
+			if(stristr($_SERVER['HTTP_USER_AGENT'], 'Safari') === FALSE) {
+				
+			}else{
 				return true;
 			}
 		}
@@ -93,7 +95,7 @@ class CookieWall {
 	}
 	public function shrt_cookieAccept($atts){
 		$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."&a=y";
-		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_cookies\">Accepteer</a>";
+		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_cookies\">".__('Accept',COOKIE_WALL_TEXT_DOMAIN)."</a>";
 	}
 	
 	public function shrt_pageEdit($atts){
@@ -103,7 +105,7 @@ class CookieWall {
 	
 	public function shrt_readmore($atts, $content = ""){
 		$content = do_shortcode($content);
-		return "<a href=\"#\" id=\"readmore\">Lees meer</a>
+		return "<a href=\"#\" id=\"readmore\">".__('Read more',COOKIE_WALL_TEXT_DOMAIN)."</a>
 			<div id=\"readmore_content\">$content</div>
 		";
 	}

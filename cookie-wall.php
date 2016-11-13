@@ -17,9 +17,16 @@ if ( !function_exists( 'add_action' ) ) {
 
 define( 'COOKIE_WALL_VERSION', '1.0' );
 define( 'COOKIE_WALL_MIN_WP_VERSION', '3.7' );
+define( 'COOKIE_WALL_TEXT_DOMAIN', 'tropical_cookiewall' );
 define( 'COOKIE_WALL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'COOKIE_WALL_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
+define( 'COOKIE_WALL_PLUGIN_FILE_NAME', plugin_basename(__FILE__) );
 
 require_once( COOKIE_WALL_PLUGIN_DIR . 'class.cookie-wall.php' );
 
 add_action( 'wp_loaded', array( 'CookieWall', 'init' ) );
+
+if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+	require_once( COOKIE_WALL_PLUGIN_DIR . 'class.cookie-wall-admin.php' );
+	add_action( 'init', array( 'CookieWallAdmin', 'init' ) );
+}
