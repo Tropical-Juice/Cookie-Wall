@@ -28,6 +28,7 @@ require_once( COOKIE_WALL_PLUGIN_DIR_PATH . 'class.cookie-wall.php' );
 add_action( 'wp_loaded', array( 'CookieWall', 'init' ) );
 
 if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+	require_once( COOKIE_WALL_PLUGIN_DIR_PATH . 'class.cookie-wall-admin-settings.php' );
 	require_once( COOKIE_WALL_PLUGIN_DIR_PATH . 'class.cookie-wall-admin.php' );
 	add_action( 'init', array( 'CookieWallAdmin', 'init' ) );
 }

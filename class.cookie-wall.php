@@ -1,7 +1,7 @@
 <?php
 
 class CookieWall {
-	private static $cookieName = "wp-cookie-wall";
+	private static $cookieName = "wp-tropical-cookie-wall";
 	private static $initiated = false;
 	
 	
