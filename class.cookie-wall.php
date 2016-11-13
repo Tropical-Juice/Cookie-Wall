@@ -126,7 +126,7 @@ class CookieWall {
 	}
 	public function shrt_cookieAccept($atts){
 		$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."&a=y";
-		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_cookies\">".__('Accept',COOKIE_WALL_TEXT_DOMAIN)."</a>";
+		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_koe\">".__('Accept',COOKIE_WALL_TEXT_DOMAIN)."</a>";
 	}
 	
 	public function shrt_pageEdit($atts){
