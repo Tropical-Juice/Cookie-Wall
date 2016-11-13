@@ -76,7 +76,18 @@ class CookieWall {
 	}
 	
 	private static function getPageBG(){
-		return COOKIE_WALL_PLUGIN_URI.'assets/images/bg.png';
+		$options = get_option('tropical_cookie_wall_options');
+		return $options['background_url'];
+	}
+	
+	private static function getBGBlur(){
+		$options = get_option('tropical_cookie_wall_options');
+		return $options['background_blur'];
+	}
+	
+	private static function getLogoUrl(){
+		$options = get_option('tropical_cookie_wall_options');
+		return $options['content_logo'];
 	}
 	
 	private static function getPageLogo(){

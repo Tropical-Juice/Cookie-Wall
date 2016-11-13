@@ -9,11 +9,12 @@
 	<style>
 	    .background {
 	        background: url('<?php echo self::getPageBG() ?>') no-repeat top center;
-	        -webkit-filter: blur(5px);
-	        -moz-filter: blur(5px);
-	        -o-filter: blur(5px);
-	        -ms-filter: blur(5px);
-	        filter: blur(5px);
+	        <?php $blur = self::getBGBlur() ?>
+	        -webkit-filter: blur(<?php echo $blur ?>px);
+	        -moz-filter: blur(<?php echo $blur ?>px);
+	        -o-filter: blur(<?php echo $blur ?>px);
+	        -ms-filter: blur(<?php echo $blur ?>px);
+	        filter: blur(<?php echo $blur ?>px);
 	    }
 	</style>
 </head>
@@ -22,7 +23,7 @@
 	<section class="overlay"></section>
 	<main>
 		<section>
-			<img alt="logo" id="logo" src="<?php echo self::getPageLogo(); ?>">
+			<img alt="logo" id="logo" src="<?php echo self::getLogoUrl(); ?>">
 			<h1><?php echo apply_filters('the_title', $post->post_title); ?></h1>
 			<p></p>
 			<?php echo apply_filters('the_content', $post->post_content); ?>
