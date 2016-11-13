@@ -86,9 +86,7 @@ class CookieWall {
 	private static function get_blocked_agents(){
 		$blocked_agents = array ('Internet\ Explorer', 'MSIE', 'Chrome', 'Safari', 'Firefox', 'Windows', 'Opera', 'iphone', 'ipad', 'android', 'blackberry');
 		foreach($blocked_agents as $agent){
-			if(stristr($_SERVER['HTTP_USER_AGENT'], 'Safari') === FALSE) {
-				
-			}else{
+			if(stristr($_SERVER['HTTP_USER_AGENT'], $agent) !== FALSE) {
 				return true;
 			}
 		}
