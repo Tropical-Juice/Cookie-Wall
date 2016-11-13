@@ -19,7 +19,7 @@ class CookieWallAdmin {
 	
 	public static function options() {
 		if ( !current_user_can( 'manage_options' ) )  {
-			wp_die( __( 'You do not have sufficient permissions to access this page.' COOKIE_WALL_TEXT_DOMAIN) );
+			wp_die( __( 'You do not have sufficient permissions to access this page.', COOKIE_WALL_TEXT_DOMAIN) );
 		}
 		include('templates/admin-options.php');
 	}

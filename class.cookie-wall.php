@@ -18,6 +18,7 @@ class CookieWall {
 		add_shortcode( 'accept_button', array('CookieWall', 'shrt_cookieAccept') );
 		add_shortcode( 'readmore', array('CookieWall', 'shrt_readmore') );
 		add_shortcode( 'page_edit_date', array('CookieWall', 'shrt_pageEdit') );
+		load_plugin_textdomain(COOKIE_WALL_TEXT_DOMAIN, false, COOKIE_WALL_PLUGIN_DIR.'/translations/');
 		self::$initiated = true;
 		self::createCookieWall();		
 	}
