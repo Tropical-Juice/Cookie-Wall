@@ -11,6 +11,10 @@ class CookieWallAdminSettingsPage {
     public function __construct(){
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
+        if($hook != 'tropical-cookie-wall') {
+	        wp_enqueue_media();
+	        add_action( 'admin_enqueue_scripts', array( $this, 'custom_scripts' ));
+        }
     }
 
     /**
@@ -22,7 +26,7 @@ class CookieWallAdminSettingsPage {
             __('Cookie Wall Settings', COOKIE_WALL_TEXT_DOMAIN), 
             __('Cookie Wall', COOKIE_WALL_TEXT_DOMAIN), 
             'manage_options', 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             array( $this, 'create_admin_page' )
         );
     }
@@ -40,7 +44,7 @@ class CookieWallAdminSettingsPage {
             <?php
                 // This prints out all hidden setting fields
                 settings_fields( 'option_group' );
-                do_settings_sections( 'setting-admin' );
+                do_settings_sections( 'tropical-cookie-wall' );
                 submit_button();
             ?>
             </form>
@@ -62,14 +66,14 @@ class CookieWallAdminSettingsPage {
             'background_section', // ID
             __('Background Settings',COOKIE_WALL_TEXT_DOMAIN), // background_blur
             array( $this, 'print_section_info_background' ), // Callback
-            'setting-admin' // Page
+            'tropical-cookie-wall' // Page
         );  
 
         add_settings_field(
             'background_image_url', // ID
             __('URL',COOKIE_WALL_TEXT_DOMAIN), // background_blur 
             array( $this, 'background_url_callback' ), // Callback
-            'setting-admin', // Page
+            'tropical-cookie-wall', // Page
             'background_section' // Section           
         );      
         
@@ -77,7 +81,7 @@ class CookieWallAdminSettingsPage {
             'background_color', 
             __('Color Code, CSS compliant code',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'background_color_callback' ), 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             'background_section'
         );
 
@@ -85,7 +89,7 @@ class CookieWallAdminSettingsPage {
             'background_blur', 
             __('Blur',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'background_blur_callback' ), 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             'background_section'
         );
         
@@ -93,14 +97,14 @@ class CookieWallAdminSettingsPage {
             'content_section', // ID
             __('Content Settings',COOKIE_WALL_TEXT_DOMAIN), // background_blur
             array( $this, 'print_section_info_content' ), // Callback
-            'setting-admin' // Page
+            'tropical-cookie-wall' // Page
         ); 
         
         add_settings_field(
             'content_logo', 
             __('Logo URL',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'content_logo_callback' ), 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             'content_section'
         );
         
@@ -108,7 +112,7 @@ class CookieWallAdminSettingsPage {
             'content_page', 
             __('Page ID for cookie wall notice',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'content_pageID_callback' ), 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             'content_section'
         );
         
@@ -116,7 +120,7 @@ class CookieWallAdminSettingsPage {
             'trackingID', 
             __('Google Analytics Tracking ID',COOKIE_WALL_TEXT_DOMAIN), 
             array( $this, 'content_trackingID_callback' ), 
-            'setting-admin', 
+            'tropical-cookie-wall', 
             'content_section'
         );
     }
@@ -130,7 +134,7 @@ class CookieWallAdminSettingsPage {
     {
         $new_input = array();
         if( isset( $input['background_url'] ) )
-            $new_input['background_url'] = sanitize_text_field( $input['background_url'] );
+            $new_input['background_url'] = absint( $input['background_url'] );
             
         if( isset( $input['background_color'] ) )
             $new_input['background_color'] = sanitize_text_field( $input['background_color'] );
@@ -139,7 +143,7 @@ class CookieWallAdminSettingsPage {
             $new_input['background_blur'] = absint( $input['background_blur'] );
             
         if( isset( $input['content_logo'] ) )
-            $new_input['content_logo'] = sanitize_text_field( $input['content_logo'] );
+            $new_input['content_logo'] = absint( $input['content_logo'] );
             
         if( isset( $input['trackingID'] ) )
             $new_input['trackingID'] = sanitize_text_field( $input['trackingID'] );
@@ -166,7 +170,12 @@ class CookieWallAdminSettingsPage {
      */
     public function background_url_callback(){
         printf(
-            '<input type="text" id="background_url" name="tropical_cookie_wall_options[background_url]" value="%s" />',
+            '<div class="upload_image_button">
+            <img src="%s" style="max-width:250px" /><br>
+            <a name="submit" id="submit" class="button">%s</a>
+            <hidden input type="text" id="background_url" name="tropical_cookie_wall_options[background_url]" value="%s" /></div>',
+            wp_get_attachment_url($this->options['background_url']),
+            __('Choose background image', COOKIE_WALL_TEXT_DOMAIN),
             isset( $this->options['background_url'] ) ? esc_attr( $this->options['background_url']) : ''
         );
     }
@@ -186,8 +195,13 @@ class CookieWallAdminSettingsPage {
     }
     
     public function content_logo_callback(){
-        printf(
-            '<input type="text" id="content_logo" name="tropical_cookie_wall_options[content_logo]" value="%s" />',
+	    printf(
+            '<div class="upload_image_button">
+            <img src="%s" style="max-width:250px" /><br>
+            <a name="submit" id="submit" class="button">%s</a>
+            <hidden input type="text" id="content_logo" name="tropical_cookie_wall_options[content_logo]" value="%s" /></div>',
+            wp_get_attachment_url($this->options['content_logo']),
+            __('Choose logo image', COOKIE_WALL_TEXT_DOMAIN),
             isset( $this->options['content_logo'] ) ? esc_attr( $this->options['content_logo']) : ''
         );
     }
@@ -205,4 +219,18 @@ class CookieWallAdminSettingsPage {
             isset( $this->options['trackingID'] ) ? esc_attr( $this->options['trackingID']) : ''
         );
     }
+    
+   public function custom_scripts(){
+	    $mode = get_user_option( 'media_library_mode', get_current_user_id() ) ? get_user_option( 'media_library_mode', get_current_user_id() ) : 'grid';
+        $modes = array( 'grid', 'list' );
+        if ( isset( $_GET['mode'] ) && in_array( $_GET['mode'], $modes ) ) {
+            $mode = $_GET['mode'];
+            update_user_option( get_current_user_id(), 'media_library_mode', $mode );
+        }
+        if( ! empty ( $_SERVER['PHP_SELF'] ) && 'upload.php' === basename( $_SERVER['PHP_SELF'] ) && 'grid' !== $mode ) {
+            wp_dequeue_script( 'media' );
+        }
+        wp_enqueue_media();
+		wp_enqueue_script( 'custom_media_uploader', COOKIE_WALL_PLUGIN_URI . '/assets/js/media_uploader.js', array(), false, true );
+   }
 }

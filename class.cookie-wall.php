@@ -78,7 +78,7 @@ class CookieWall {
 	
 	private static function getPageBgImage(){
 		$options = get_option('tropical_cookie_wall_options');
-		return $options['background_url'];
+		return wp_get_attachment_url($options['background_url']);
 	}
 	
 	private static function getPageBgColor(){
@@ -93,7 +93,7 @@ class CookieWall {
 	
 	private static function getLogoUrl(){
 		$options = get_option('tropical_cookie_wall_options');
-		return $options['content_logo'];
+		return wp_get_attachment_url($options['content_logo']);
 	}
 	
 	private static function getTrackingCode(){

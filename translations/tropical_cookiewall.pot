@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Cookie Wall\n"
-"POT-Creation-Date: 2016-11-13 20:46+0100\n"
-"PO-Revision-Date: 2016-11-13 20:45+0100\n"
+"POT-Creation-Date: 2016-11-14 22:39+0100\n"
+"PO-Revision-Date: 2016-11-14 22:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,54 +20,62 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: class.cookie-wall-admin-settings.php:22
-#: class.cookie-wall-admin-settings.php:38
+#: class.cookie-wall-admin-settings.php:26
+#: class.cookie-wall-admin-settings.php:42
 msgid "Cookie Wall Settings"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: class.cookie-wall-admin-settings.php:23
+#: class.cookie-wall-admin-settings.php:27
 msgid "Cookie Wall"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:63
+#: class.cookie-wall-admin-settings.php:67
 msgid "Background Settings"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:70
+#: class.cookie-wall-admin-settings.php:74
 msgid "URL"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:78
+#: class.cookie-wall-admin-settings.php:82
 msgid "Color Code, CSS compliant code"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:86
+#: class.cookie-wall-admin-settings.php:90
 msgid "Blur"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:94
+#: class.cookie-wall-admin-settings.php:98
 msgid "Content Settings"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:101
+#: class.cookie-wall-admin-settings.php:105
 msgid "Logo URL"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:109
+#: class.cookie-wall-admin-settings.php:113
 msgid "Page ID for cookie wall notice"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:117
+#: class.cookie-wall-admin-settings.php:121
 msgid "Google Analytics Tracking ID"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:157
+#: class.cookie-wall-admin-settings.php:161
 msgid "This section controls the background, image and blur:"
 msgstr ""
 
-#: class.cookie-wall-admin-settings.php:161
+#: class.cookie-wall-admin-settings.php:165
 msgid "This section controls the content options:"
+msgstr ""
+
+#: class.cookie-wall-admin-settings.php:178
+msgid "Choose background image"
+msgstr ""
+
+#: class.cookie-wall-admin-settings.php:204
+msgid "Choose logo image"
 msgstr ""
 
 #: class.cookie-wall-admin.php:17
