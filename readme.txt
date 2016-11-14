@@ -1,18 +1,11 @@
 === EU Cookie Wall ===
-Contributors: [where can i find this]
-
+Contributors: xvilo
 Donate link: http://tropicaljuice.nl/
-
 Tags: cookies, eu, cookie, law, cookie law, plugin
-
 Requires at least: 3.7
-
 Tested up to: 4.7
-
 Stable tag: 4.3
-
 License: GPLv2 or later
-
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds. 
@@ -44,6 +37,9 @@ Features
 This plugins targets only on browser by `user-agent` most of the spiders, indexers and bots (like whatsapp/telegram previews, facebook share preview etc) are not redirected to the cookie wall. This way they can index what they want without interruption. 
 
 == Changelog ==
+
+= 1.1 =
+* Images now done with media uploader
 
 = 1.0 =
 * initial release
