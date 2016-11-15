@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Tropical-Juice/Cookie-Wall.svg?branch=master)](https://travis-ci.org/Tropical-Juice/Cookie-Wall)
 # EU Cookie Wall
 Contributors: xvilo
 
