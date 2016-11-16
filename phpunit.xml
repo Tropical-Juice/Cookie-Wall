@@ -10,6 +10,8 @@
     <testsuite>
       <directory prefix="test-" suffix=".php">./tests/</directory>
       <env key="HTTP_USER_AGENT" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/602.3.3 (KHTML, like Gecko) Version/10.0.2 Safari/602.3.3"/>
+      <env key="HTTP_HOST" value="localhost/"/>
+      <env key="REDIRECT_URL" value=""/>
     </testsuite>
   </testsuites>
 </phpunit>

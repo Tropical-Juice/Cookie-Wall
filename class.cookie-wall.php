@@ -3,6 +3,10 @@
 class CookieWall {
 	private static $cookieName = "wp-tropical-cookie-wall";
 	private static $initiated = false;
+	private static $useragent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : getenv('HTTP_USER_AGENT');
+	private static $requestscheme = isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER['REQUEST_SCHEME'] : getenv('REQUEST_SCHEME');
+	private static $httphost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : getenv('HTTP_HOST');
+	private static $redirecturl = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : getenv('REDIRECT_URL');
 	
 	
 	public static function init() {
@@ -33,7 +37,7 @@ class CookieWall {
 	private static function checkCookieWall(){
 		if(self::get_blocked_agents()){
 			if(!self::checkCookie() && !self::isCookiePage() && !is_admin()){
-				wp_redirect( self::getCookiePageUri()."?u=".base64_encode($_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]) );
+				wp_redirect( self::getCookiePageUri()."?u=".base64_encode(self::$requestscheme."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]) );
 				exit;
 			}elseif(isset($_GET['a'])){
 				if($_GET['a'] == 'y'){
@@ -61,7 +65,7 @@ class CookieWall {
 	}
 	
 	private static function getCurrentUri(){
-		return $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REDIRECT_URL"];
+		return self::$requestscheme."://".self::$httphost.self::$redirecturl;
 	}
 	
 	private static function isCookiePage(){
@@ -118,14 +122,14 @@ class CookieWall {
 	private static function get_blocked_agents(){
 		$blocked_agents = array ('Internet\ Explorer', 'MSIE', 'Chrome', 'Safari', 'Firefox', 'Windows', 'Opera', 'iphone', 'ipad', 'android', 'blackberry');
 		foreach($blocked_agents as $agent){
-			if(stristr($_SERVER['HTTP_USER_AGENT'], $agent) !== FALSE) {
+			if(stristr(self::$useragent, $agent) !== FALSE) {
 				return true;
 			}
 		}
 		return false;
 	}
 	public function shrt_cookieAccept($atts){
-		$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."&a=y";
+		$url = self::$requestscheme."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."&a=y";
 		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_koe\">".__('Accept',COOKIE_WALL_TEXT_DOMAIN)."</a>";
 	}
 	
