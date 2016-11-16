@@ -1,0 +1,14 @@
+{
+    "name": "xvilo/cookie-wall",
+    "description": "This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds.",
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Sem Schilder",
+            "email": "sem@tropical.email"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {}
+}
