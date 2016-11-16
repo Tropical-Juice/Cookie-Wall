@@ -1,12 +1,7 @@
+# This uses newer and faster docker based build system
 sudo: false
+
 language: php
-php:
-  - '5.4'
-  - '5.5'
-  - '5.6'
-  - '7.0'
-  - hhvm
-  - nightly
 
 notifications:
   on_success: never
@@ -26,8 +21,12 @@ matrix:
     - php: nightly
 
 before_script:
+  # Install composer packages before trying to activate themes or plugins
+  # - composer install
+
   - git clone https://github.com/Seravo/wordpress-test-template wp-tests
   - bash wp-tests/bin/install-wp-tests.sh test root '' localhost $WP_VERSION
 
 script:
-  - cd wp-tests/spec && bundle exec rspec test.rb
+  - phpunit
+  - cd tests/spec && bundle exec rspec test.rb
