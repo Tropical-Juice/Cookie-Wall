@@ -5,8 +5,8 @@ Tags: cookies, eu, cookie, law, cookie law, plugin
 Requires at least: 3.7
 Tested up to: 4.7
 Stable tag: 4.3
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds. 
 
