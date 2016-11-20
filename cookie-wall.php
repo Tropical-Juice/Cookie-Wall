@@ -9,11 +9,7 @@
 	Text Domain: tropical_cookiewall
 */
 
-// Make sure we don't expose any info if called directly
-if ( !function_exists( 'add_action' ) ) {
-	echo 'Hello There!  I\'m just a plugin, not much I can do when called directly.';
-	exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit; 
 
 define( 'COOKIE_WALL_VERSION', '1.0' );
 define( 'COOKIE_WALL_MIN_WP_VERSION', '3.7' );

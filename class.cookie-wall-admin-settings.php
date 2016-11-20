@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 class CookieWallAdminSettingsPage {
     /**
      * Holds the values to be used in the fields callbacks

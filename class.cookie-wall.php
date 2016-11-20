@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 class CookieWall {
 	private static $cookieName = "wp-tropical-cookie-wall";
 	private static $initiated = false;
