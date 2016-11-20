@@ -115,10 +115,6 @@ class CookieWall {
 		</script>;";
 	}
 	
-	private static function getPageLogo(){
-		return 'http://www.dev.tropicaljuice.nl/cookie-wall/wp-content/uploads/2016/11/Screen-Shot-2016-11-12-at-15.24.38.png';
-	}
-	
 	private static function get_blocked_agents(){
 		$blocked_agents = array ('Internet\ Explorer', 'MSIE', 'Chrome', 'Safari', 'Firefox', 'Windows', 'Opera', 'iphone', 'ipad', 'android', 'blackberry');
 		foreach($blocked_agents as $agent){
