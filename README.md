@@ -46,6 +46,9 @@ This plugins targets only on browser by `user-agent` most of the spiders, indexe
 
 ## Changelog 
 
+*1.1.1*
+* Small technical changes to template
+
 *1.1*
 
 * Images now done with media uploader.

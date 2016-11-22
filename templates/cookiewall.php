@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="ie=edge" http-equiv="x-ua-compatible">
 	<title><?php echo apply_filters('the_title', $post->post_title); ?></title>
-	<link href="<?php echo COOKIE_WALL_PLUGIN_URI ?>assets/css/style.css" media="all" rel="stylesheet">
+	<?php echo self::getStyles() ?>
 	<style>
 	    .background {
 	        background:<?php echo self::getPageBgColor() ?> url('<?php echo self::getPageBgImage() ?>') no-repeat top center;
@@ -29,10 +29,7 @@
 			<?php echo apply_filters('the_content', $post->post_content); ?>
 		</section>
 	</main>
-		<script src="<?php echo get_site_url()?>/wp-includes/js/jquery/jquery.js" type='text/javascript'>
-		</script> 
-		<script src="<?php echo COOKIE_WALL_PLUGIN_URI ?>assets/js/scripts.js" type='text/javascript'>
-		</script> 
+		<?php echo self::getScripts() ?>
 		<?php echo self::getTrackingCode() ?>
 </body>
 </html>

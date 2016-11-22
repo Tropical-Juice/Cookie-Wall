@@ -3,15 +3,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class CookieWall {
 	private static $cookieName = "wp-tropical-cookie-wall";
 	private static $initiated = false;
-	private static $useragent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : getenv('HTTP_USER_AGENT');
-	private static $requestscheme = isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER['REQUEST_SCHEME'] : getenv('REQUEST_SCHEME');
-	private static $httphost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : getenv('HTTP_HOST');
-	private static $redirecturl = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : getenv('REDIRECT_URL');
+	private static $useragent = '';
+	private static $requestscheme = '';
+	private static $httphost = '';
+	private static $redirecturl = '';
+	private static $scripts = array();
+	private static $styles = array();
 	
 	
 	public static function init() {
 		if ( ! self::$initiated ) {
+			self::$initiated = true;
 			self::init_hooks();
+			self::createVars();
+			self::createCookieWall();
 		}
 	}
 
@@ -22,14 +27,13 @@ class CookieWall {
 		add_shortcode( 'accept_button', array('CookieWall', 'shrt_cookieAccept') );
 		add_shortcode( 'readmore', array('CookieWall', 'shrt_readmore') );
 		add_shortcode( 'page_edit_date', array('CookieWall', 'shrt_pageEdit') );
-		load_plugin_textdomain(COOKIE_WALL_TEXT_DOMAIN, false, COOKIE_WALL_PLUGIN_DIR.'/translations/');
-		self::$initiated = true;
-		self::createCookieWall();		
+		load_plugin_textdomain(COOKIE_WALL_TEXT_DOMAIN, false, COOKIE_WALL_PLUGIN_DIR.'/translations/');	
 	}
 	
 	public static function createCookieWall(){
 		if(self::checkCookieWall()){
 			$post = get_post(self::getCookiePageID());
+			self::enqueueScripts();
 			include('templates/cookiewall.php');
 			exit;
 		}
@@ -51,6 +55,12 @@ class CookieWall {
 			return false;
 		}
 		return  false;
+	}
+	
+	public static function enqueueScripts(){
+		array_push(self::$styles, array("Cookie-wall-style", COOKIE_WALL_PLUGIN_URI .'assets/css/style.css', array(), 1));
+		array_push(self::$scripts, array("jquery", get_site_url().'/wp-includes/js/jquery/jquery.js', array(), 1));
+		array_push(self::$scripts, array("cookie-wall-scripts", COOKIE_WALL_PLUGIN_URI.'assets/js/scripts.js', array(), 1));
 	}
 
 	private static function checkCookie() {
@@ -78,6 +88,20 @@ class CookieWall {
 	private static function getCookiePageID(){
 		$options = get_option('tropical_cookie_wall_options');
 		return $options['content_page'];
+	}
+	
+	private static function getStyles(){
+		foreach(self::$styles as $style){
+			$html .= "<link id=\"{$style[0]}\" href=\"{$style[1]}\" media=\"all\" rel=\"stylesheet\">".PHP_EOL;
+		}
+		return $html;
+	}
+	
+	private static function getScripts(){
+		foreach(self::$scripts as $script){
+			$html .= "<script id=\"{$script[0]}\" src=\"{$script[1]}\" type='text/javascript'></script> ".PHP_EOL;
+		}
+		return $html;
 	}
 	
 	private static function getPageBgImage(){
@@ -124,6 +148,14 @@ class CookieWall {
 		}
 		return false;
 	}
+	
+	public static function createVars(){
+		self::$useragent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : getenv('HTTP_USER_AGENT');
+		self::$requestscheme = isset($_SERVER["REQUEST_SCHEME"]) ? $_SERVER['REQUEST_SCHEME'] : getenv('REQUEST_SCHEME');
+		self::$httphost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : getenv('HTTP_HOST');
+		self::$redirecturl = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : getenv('REDIRECT_URL');
+	}
+	
 	public function shrt_cookieAccept($atts){
 		$url = self::$requestscheme."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."&a=y";
 		return "<a class=\"btn btn__accept\" href=\"{$url}\" id=\"accept_koe\">".__('Accept',COOKIE_WALL_TEXT_DOMAIN)."</a>";
