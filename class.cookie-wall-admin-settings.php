@@ -174,7 +174,7 @@ class CookieWallAdminSettingsPage {
             '<div class="upload_image_button">
             <img src="%s" style="max-width:250px" /><br>
             <a name="submit" id="submit" class="button">%s</a>
-            <hidden input type="text" id="background_url" name="tropical_cookie_wall_options[background_url]" value="%s" /></div>',
+            <input hidden type="text" id="background_url" name="tropical_cookie_wall_options[background_url]" value="%s" /></div>',
             wp_get_attachment_url($this->options['background_url']),
             __('Choose background image', COOKIE_WALL_TEXT_DOMAIN),
             isset( $this->options['background_url'] ) ? esc_attr( $this->options['background_url']) : ''
@@ -200,7 +200,7 @@ class CookieWallAdminSettingsPage {
             '<div class="upload_image_button">
             <img src="%s" style="max-width:250px" /><br>
             <a name="submit" id="submit" class="button">%s</a>
-            <hidden input type="text" id="content_logo" name="tropical_cookie_wall_options[content_logo]" value="%s" /></div>',
+            <input hidden type="text" id="content_logo" name="tropical_cookie_wall_options[content_logo]" value="%s" /></div>',
             wp_get_attachment_url($this->options['content_logo']),
             __('Choose logo image', COOKIE_WALL_TEXT_DOMAIN),
             isset( $this->options['content_logo'] ) ? esc_attr( $this->options['content_logo']) : ''

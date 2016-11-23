@@ -12,6 +12,8 @@ Tested up to: 4.7
 
 Stable tag: 4.3
 
+Version 1.1.2
+
 License: GPLv3
 
 License URI: https://www.gnu.org/license/gpl-3.0.html

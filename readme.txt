@@ -5,6 +5,7 @@ Tags: cookies, eu, cookie, law, cookie law, plugin
 Requires at least: 3.7
 Tested up to: 4.7
 Stable tag: 4.3
+Version 1.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -37,6 +38,9 @@ Features
 This plugins targets only on browser by `user-agent` most of the spiders, indexers and bots (like whatsapp/telegram previews, facebook share preview etc) are not redirected to the cookie wall. This way they can index what they want without interruption. 
 
 == Changelog ==
+
+= 1.1.2 = 
+* Upload bug
 
 = 1.1.1 =
 * Small technical changes to template
