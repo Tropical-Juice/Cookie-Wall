@@ -3,26 +3,26 @@ Contributors: xvilo
 Donate link: http://tropicaljuice.nl/
 Tags: cookies, eu, cookie, law, cookie law, plugin
 Requires at least: 3.7
-Tested up to: 4.7
-Stable tag: 4.3
+Tested up to: 4.7.4
+Stable tag: 4.7.4
 Version 1.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds. 
+This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version available of the website without cookies and 3rd-party embeds. 
 
 == Description ==
 
-This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds. 
+This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version available of the website without cookies and 3rd-party embeds. 
 
 Features
 
 *   Bot/indexer/SEO friendly, only target the users you want to target.
-*   Customize the look and feel
+*   Customise the look and feel
 *   Easily change the content of the cookie wall
 *   Easy control with shortcodes
 
-    Pleae note that this is an early release, things can change in the future. Not everything is as polished as I'd like. 
+    Please note that this is an early release, things can change in the future. Not everything is as polished as I'd like. 
     
 == Installation ==
 
@@ -35,9 +35,13 @@ Features
 
 = What about Google? =
 
-This plugins targets only on browser by `user-agent` most of the spiders, indexers and bots (like whatsapp/telegram previews, facebook share preview etc) are not redirected to the cookie wall. This way they can index what they want without interruption. 
+This plugin targets only a browser by `user-agent` most of the spiders, indexers and bots (like WhatsApp/telegram previews, Facebook share preview, etc.) are not redirected to the cookie wall. This way they can index what they want without interruption. 
 
 == Changelog ==
+
+= 1.1.2 = 
+* Featured image could not be set. This has been fixed now! Please let us know if you experience any issues.
+* Spell checked the readme and changelog file! 
 
 = 1.1.2 = 
 * Upload bug

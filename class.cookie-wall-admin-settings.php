@@ -12,7 +12,8 @@ class CookieWallAdminSettingsPage {
     public function __construct(){
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
-        if($hook != 'tropical-cookie-wall') {
+        
+        if($hook !== 'tropical-cookie-wall' && strpos($_SERVER['REQUEST_URI'], 'options-general.php?page=tropical-cookie-wall') !== false) {
 	        wp_enqueue_media();
 	        add_action( 'admin_enqueue_scripts', array( $this, 'custom_scripts' ));
         }

@@ -3,7 +3,7 @@
 	Plugin Name: Cookie Wall
 	Plugin URI: https://tropicaljuice.nl/
 	Description: This plugin add's a simple cookie wall to comply with Dutch Cookie-laws. This plugin can be used when there is not 'light' version availble of the website withouth cookies and 3rd-party embeds. 
-	Version: 1.1.2
+	Version: 1.1.3
 	Author: Tropical Juice
 	Author URI: https://tropicaljuice.nl/
 	Text Domain: tropical_cookiewall
@@ -13,7 +13,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
-define( 'COOKIE_WALL_VERSION', '1.0' );
+define( 'COOKIE_WALL_VERSION', '1.1.3' );
 define( 'COOKIE_WALL_MIN_WP_VERSION', '3.7' );
 define( 'COOKIE_WALL_TEXT_DOMAIN', 'tropical_cookiewall' );
 define( 'COOKIE_WALL_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
