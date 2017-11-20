@@ -1,5 +1,10 @@
-[![Build Status](https://travis-ci.org/Tropical-Juice/Cookie-Wall.svg?branch=master)](https://travis-ci.org/Tropical-Juice/Cookie-Wall)
 # EU Cookie Wall
+[![Stars](https://img.shields.io/wordpress/plugin/r/eu-cookie-wall.svg)](http://wordpress.org/plugins/eu-cookie-wall/)
+[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/eu-cookie-wall.svg)](http://wordpress.org/plugins/eu-cookie-wall/)
+[![Plugin Version](https://img.shields.io/wordpress/plugin/v/eu-cookie-wall.svg)](https://wordpress.org/plugins/eu-cookie-wall/)
+[![Latest tested on WordPress](https://img.shields.io/wordpress/v/eu-cookie-wall.svg)](https://wordpress.org/plugins/eu-cookie-wall/)
+[![License](https://img.shields.io/packagist/l/rilwis/eu-cookie-wall.svg)](https://wordpress.org/plugins/eu-cookie-wall/)
+
 Contributors: xvilo
 
 Donate link: http://tropicaljuice.nl/
